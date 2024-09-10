@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-# Data models
+# Data schemas
 class CarCreate(BaseModel):
     brand: str = Field(..., max_length=50)
     model: str = Field(..., max_length=50)
