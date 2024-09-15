@@ -15,7 +15,6 @@ def create_car(car: CarCreate, db: Session = Depends(get_db)):
     db_car = Car(**car.model_dump())
     db.add(db_car)
     db.commit()
-    db.refresh(db_car)
     return {"message": "Car added"}
 
 
@@ -28,7 +27,6 @@ def rate_car(car_id: int, rating: RatingCreate, db: Session = Depends(get_db)):
     db_rating = CarRating(car_id=car_id, rating=rating.rating)
     db.add(db_rating)
     db.commit()
-    db.refresh(db_rating)
     return {"message": "Rating added"}
 
 
